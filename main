@@ -1,0 +1,30 @@
+import re
+from collections import Counter
+
+def count_words(text):
+    words = re.findall(r'\w+', text.lower())
+    word_count = Counter(words)
+    return word_count
+
+print("单词计数器命令行工具")
+
+while True:
+    print("\n请选择操作：")
+    print("1. 统计单词")
+    print("2. 退出程序")
+
+    choice = input("请选择操作（输入数字）：")
+
+    if choice == '2':
+        print("谢谢使用，再见！")
+        break
+
+    if choice == '1':
+        text = input("请输入文本：")
+        word_count = count_words(text)
+        
+        print("单词统计结果：")
+        for word, count in word_count.items():
+            print(f"{word}: {count}")
+    else:
+        print("无效的选择，请重新输入。")
